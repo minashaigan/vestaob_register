@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('section');
             $table->string('university');
             $table->string('major');
-            $table->string('data');
+            $table->string('data')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
