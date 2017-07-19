@@ -98,5 +98,6 @@ return [
         'نرم افزار های animation',
         'typography',
         'طراحی الگو',
-    ]
+    ],
+    'count'=>3
 ];
