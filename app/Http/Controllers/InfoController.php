@@ -21,12 +21,12 @@ class InfoController extends Controller
         $user = User::findorfail($id);
         $user->data = json_encode([
                 'intro'=>[
-                    'name'=>$user->name,
-                    'email'=>$user->email,
-                    'phone'=>$user->phone,
-                    'section'=>$user->section,
-                    'university'=>$user->university,
-                    'major'=>$user->major
+                    "name"=>$user->name,
+                    "email"=>$user->email,
+                    "phone"=>$user->phone,
+                    "section"=>$user->section,
+                    "university"=>$user->university,
+                    "major"=>$user->major
                 ],
                 'trend'=> $request->input('trend'),
                 'skills'=>[
@@ -37,8 +37,9 @@ class InfoController extends Controller
                 ]
             ]
         );
-        return $user;
+        
         $user->save();
+        return $user;
 
     }
     
