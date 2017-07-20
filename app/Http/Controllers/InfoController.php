@@ -32,13 +32,6 @@ class InfoController extends Controller
             'phone.regex' =>'فرمت شماره تماس درست نیست از فرمت مثالی ۰۹۳۰۱۱۰۱۰۱۰ استفاده نمایید.'
         ]);
         if ($validator->fails()) {
-            $messages = $validator->messages();
-
-            foreach ($messages->all('<li>:message</li>') as $message)
-            {
-                echo $message;
-            }
-            return;
             return redirect('/formdata')
                 ->withErrors($validator)
                 ->withInput();

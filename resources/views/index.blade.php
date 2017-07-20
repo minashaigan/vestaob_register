@@ -26,18 +26,24 @@
 						<li>
                             <label class="fs-field-label fs-anim-upper" for="name">اسمت چیه؟</label>
                             <input class="fs-anim-lower" id="name" name="name" type="text" placeholder="استیو جابز" required/>
+							<div style="color: #de0000"> <?php echo $errors->first('name'); ?></div>
                             <label class="fs-field-label fs-anim-upper" for="email">ایمیلتم بگو.</label>
                             <input class="fs-anim-lower" id="mail" name="email" type="email" placeholder="stevejojo@gmail.com" required/>
+							<div style="color: #de0000"> <?php echo $errors->first('email'); ?></div>
                             <label class="fs-field-label fs-anim-upper" for="phone">یه شماره تماسم بده.</label>
                             <input class="fs-anim-lower" id="phone" name="phone" type="number" placeholder="09363636333" required/>
+							<div style="color: #de0000"> <?php echo $errors->first('phone'); ?></div>
 						</li>
 						<li>
-                            <label class="fs-field-label fs-anim-upper" for="section">در چه مقطعی هستی؟</label>
+                            <label class="fs-field-label fs-anim-upper" for="grade">در چه مقطعی هستی؟</label>
                             <input class="fs-anim-lower" id="section" name="grade" type="text" placeholder="کارشناسی"/>
-                            <label class="fs-field-label fs-anim-upper" for="branch">چه رشته ای؟</label>
+							<div style="color: #de0000"> <?php echo $errors->first('grade'); ?></div>
+                            <label class="fs-field-label fs-anim-upper" for="major">چه رشته ای؟</label>
                             <input class="fs-anim-lower" id="branch" name="major" type="text" placeholder="مهندسی نرم افزار"/>
+							<div style="color: #de0000"> <?php echo $errors->first('major'); ?></div>
                             <label class="fs-field-label fs-anim-upper" for="university">کدوم دانشگاه؟</label>
                             <input class="fs-anim-lower" id="university" name="university" type="text" placeholder="تهران جنوب شرقی"/>
+							<div style="color: #de0000"> <?php echo $errors->first('universiry'); ?></div>
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" data-info="گرایش هایی که مهارت های نیاز اونو داری.">در چه گرایش هایی مهارت داری؟</label>
