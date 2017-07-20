@@ -123,6 +123,6 @@ class InfoController extends Controller
         for($i=0; $i< Config::get('major.count_field');$i++){
             $skills[] = array_values(Config::get('major.t'.$i));
         }
-        return view('data')->with(['grades'=>$grades,'majors'=>$majors,'skills'=>$skills,'fields'=>$fields]);
+        return view('index')->with(['grades'=>$grades,'majors'=>$majors,'skills'=>$skills,'fields'=>$fields]);
     }
 }

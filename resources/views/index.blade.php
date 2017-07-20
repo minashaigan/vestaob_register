@@ -41,53 +41,75 @@
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" data-info="گرایش هایی که مهارت های نیاز اونو داری.">در چه گرایش هایی مهارت داری؟</label>
 							<div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-								<span><input id="back" name="back" type="checkbox" value="back"/><label for="back" class="radio-back">توسعه وب</label></span>
-								<span><input id="front" name="front" type="checkbox" value="front"/><label for="front" class="radio-front">طراحی وب</label></span>
-								<span><input id="mobile" name="mobile" type="checkbox" value="mobile"/><label for="mobile" class="radio-mobile">موبایل</label></span>
-								<span><input id="data" name="data" type="checkbox" value="data"/><label for="data" class="radio-datamining">داده کاوی</label></span>
-								<span><input id="graphic" name="graphic" type="checkbox" value="graphic"/><label for="graphic" class="radio-graphic">گرافیک</label></span>
-								<span><input id="digital" name="digital" type="checkbox" value="digital"/><label for="digital" class="radio-digital">بازاریابی دیجیتال</label></span>
-								<span><input id="project" name="project" type="checkbox" value="project"/><label for="project" class="radio-project">مدیریت پروژه</label></span>
+								<span><input id="back" name="t1" type="checkbox" value="back"/><label for="back" class="radio-back">توسعه وب</label></span>
+								<span><input id="front" name="t2" type="checkbox" value="front"/><label for="front" class="radio-front">طراحی وب</label></span>
+								<span><input id="mobile" name="t3" type="checkbox" value="mobile"/><label for="mobile" class="radio-mobile">موبایل</label></span>
+								<span><input id="data" name="t4" type="checkbox" value="data"/><label for="data" class="radio-datamining">داده کاوی</label></span>
+								<span><input id="graphic" name="t5" type="checkbox" value="graphic"/><label for="graphic" class="radio-graphic">گرافیک</label></span>
+								<span><input id="digital" name="t6" type="checkbox" value="digital"/><label for="digital" class="radio-digital">بازاریابی دیجیتال</label></span>
+								<span><input id="project" name="t7" type="checkbox" value="project"/><label for="project" class="radio-project">مدیریت پروژه</label></span>
 							</div>
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" data-info="مهارت های عمومی مورد نیاز برای هر کار IT.">مهارت های کلی</label>
-							<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">
-								<div class="box-header">مهارت 1</div>
-								<div class="box-body">
-									<select class="example-1to10" name="rating">
-										<option value="" selected="selected"></option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7" >7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-									</select>
+
+									@for($j=0;$j<count($skills[0]);$j++)
+										{{--<option value="t0.{{$j}}">{{$skills[0][$j]}}</option>--}}
+								<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">
+									<div class="box-header">{{$skills[0][$j]}}</div>
+									<div class="box-body">
+										<select class="example-1to10" name="t0{{$j}}r">
+											<option value="" selected="selected"></option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7" >7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+										</select>
+									</div>
 								</div>
-							</div>
-							<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">
-								<div class="box-header">مهارت 1</div>
-								<div class="box-body">
-									<select class="example-1to10" name="rating">
-										<option value="" selected="selected"></option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7" >7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-									</select>
-								</div>
-							</div>
+									@endfor
+
+							{{--<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">--}}
+								{{--<div class="box-header">مهارت 1</div>--}}
+								{{--<div class="box-body">--}}
+									{{--<select class="example-1to10" name="rating">--}}
+										{{--<option value="" selected="selected"></option>--}}
+										{{--<option value="1">1</option>--}}
+										{{--<option value="2">2</option>--}}
+										{{--<option value="3">3</option>--}}
+										{{--<option value="4">4</option>--}}
+										{{--<option value="5">5</option>--}}
+										{{--<option value="6">6</option>--}}
+										{{--<option value="7" >7</option>--}}
+										{{--<option value="8">8</option>--}}
+										{{--<option value="9">9</option>--}}
+										{{--<option value="10">10</option>--}}
+									{{--</select>--}}
+								{{--</div>--}}
+							{{--</div>--}}
+							{{--<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">--}}
+								{{--<div class="box-header">مهارت 1</div>--}}
+								{{--<div class="box-body">--}}
+									{{--<select class="example-1to10" name="rating">--}}
+										{{--<option value="" selected="selected"></option>--}}
+										{{--<option value="1">1</option>--}}
+										{{--<option value="2">2</option>--}}
+										{{--<option value="3">3</option>--}}
+										{{--<option value="4">4</option>--}}
+										{{--<option value="5">5</option>--}}
+										{{--<option value="6">6</option>--}}
+										{{--<option value="7" >7</option>--}}
+										{{--<option value="8">8</option>--}}
+										{{--<option value="9">9</option>--}}
+										{{--<option value="10">10</option>--}}
+									{{--</select>--}}
+							{{--</div>--}}
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" data-info="مهارت های موجود در گرایش هایی که انتخاب کردی">مهارت های فنی</label>
