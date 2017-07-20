@@ -55,9 +55,9 @@ class InfoController extends Controller
             if(Input::get('t'.$i)){
                 for($j=0; $j< count(Config::get('major.t'.$i));$j++){
                     //if(Input::get('t'.$i.$j)){
-                        if(Input::get('t'.$i.$j.'r') != 0)
+                        if(!is_null(Input::get('t'.$i.$j.'r')))
                             $skill['t'.$i.$j] = [
-                                "name" => Input::get('t'.$i.$j),
+                                "name" => Config::get('major.t'.$i.'.t'.$i.$j),
                                 "rate" => Input::get('t'.$i.$j.'r')
                             ];
                     //}
@@ -128,7 +128,7 @@ class InfoController extends Controller
         $majors = array_keys(Config::get('major.majors'));
         $fields = array_keys(Config::get('major.fields'));
         $skills = [];
-        
+
         for($i=0; $i< Config::get('major.count_field');$i++){
             $skills[] = array_values(Config::get('major.t'.$i));
         }

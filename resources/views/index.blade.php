@@ -48,13 +48,13 @@
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" data-info="گرایش هایی که مهارت های نیاز اونو داری.">در چه گرایش هایی مهارت داری؟</label>
 							<div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-								<span><input id="back" name="t1" type="checkbox" value="back"/><label for="back" class="radio-back">توسعه وب</label></span>
-								<span><input id="front" name="t2" type="checkbox" value="front"/><label for="front" class="radio-front">طراحی وب</label></span>
-								<span><input id="mobile" name="t3" type="checkbox" value="mobile"/><label for="mobile" class="radio-mobile">موبایل</label></span>
-								<span><input id="data" name="t4" type="checkbox" value="data"/><label for="data" class="radio-datamining">داده کاوی</label></span>
-								<span><input id="graphic" name="t5" type="checkbox" value="graphic"/><label for="graphic" class="radio-graphic">گرافیک</label></span>
-								<span><input id="digital" name="t6" type="checkbox" value="digital"/><label for="digital" class="radio-digital">بازاریابی دیجیتال</label></span>
-								<span><input id="project" name="t7" type="checkbox" value="project"/><label for="project" class="radio-project">مدیریت پروژه</label></span>
+								<span><input id="back" name="t1" type="checkbox" value="توسعه وب"/><label for="back" class="radio-back">توسعه وب</label></span>
+								<span><input id="front" name="t2" type="checkbox" value="طراحی وب"/><label for="front" class="radio-front">طراحی وب</label></span>
+								<span><input id="mobile" name="t3" type="checkbox" value="موبایل"/><label for="mobile" class="radio-mobile">موبایل</label></span>
+								<span><input id="data" name="t4" type="checkbox" value="داده کاوی"/><label for="data" class="radio-datamining">داده کاوی</label></span>
+								<span><input id="graphic" name="t5" type="checkbox" value="گرافیک"/><label for="graphic" class="radio-graphic">گرافیک</label></span>
+								<span><input id="digital" name="t6" type="checkbox" value="بازاریابی دیجیتال"/><label for="digital" class="radio-digital">بازاریابی دیجیتال</label></span>
+								<span><input id="project" name="t7" type="checkbox" value="مدیریت پروژه"/><label for="project" class="radio-project">مدیریت پروژه</label></span>
 							</div>
 						</li>
 						<li data-input-trigger>
@@ -187,7 +187,7 @@
 									{{--<select name="{{$fields[$i]}}">--}}
 										@for($j=0;$j<count($skills[$i]);$j++)
 											{{--<option value="t.{{$i}}.{{$j}}.w">{{$skills[$i][$j]}}</option>--}}
-											<span><input id="{{$skills[$i][$j]}}" name="t.{{$i}}.{{$j}}.w" type="checkbox" value="{{$skills[$i][$j]}}"/><label for="{{$skills[$i][$j]}}">{{$skills[$i][$j]}}</label></span>
+											<span><input id="{{$skills[$i][$j]}}" name="t{{$i}}{{$j}}w" type="checkbox" value="{{$skills[$i][$j]}}"/><label for="{{$skills[$i][$j]}}">{{$skills[$i][$j]}}</label></span>
 										@endfor
 									{{--</select>--}}
 								@endfor
