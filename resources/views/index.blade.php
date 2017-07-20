@@ -26,8 +26,8 @@
 						<li>
                             <label class="fs-field-label fs-anim-upper" for="name">اسمت چیه؟</label>
                             <input class="fs-anim-lower" id="name" name="name" type="text" placeholder="استیو جابز" required/>
-                            <label class="fs-field-label fs-anim-upper" for="mail">ایمیلتم بگو.</label>
-                            <input class="fs-anim-lower" id="mail" name="mail" type="email" placeholder="stevejojo@gmail.com" required/>
+                            <label class="fs-field-label fs-anim-upper" for="email">ایمیلتم بگو.</label>
+                            <input class="fs-anim-lower" id="mail" name="email" type="email" placeholder="stevejojo@gmail.com" required/>
                             <label class="fs-field-label fs-anim-upper" for="phone">یه شماره تماسم بده.</label>
                             <input class="fs-anim-lower" id="phone" name="phone" type="number" placeholder="09363636333" required/>
 						</li>

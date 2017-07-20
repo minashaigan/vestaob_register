@@ -21,7 +21,7 @@ class InfoController extends Controller
             'phone' => 'required|max:11|min:11|regex:/(09)[0-9]{9}/'
 
         ],[
-            'name.min'=>'پیام وارد شده باید بیشتر از 2 کارکتر داشته باشد.',
+            'name.min'=>'نام وارد شده باید بیشتر از 2 کارکتر داشته باشد.',
             'name.required'=>'شما حتما باید نام را وارد کنید.',
             'email.required'=>'شما حتما باید ایمیل خود را بنویسید.',
             'university.required'=>'شما باید دانشگاه خود را وارد کنید.',
@@ -32,6 +32,13 @@ class InfoController extends Controller
             'phone.regex' =>'فرمت شماره تماس درست نیست از فرمت مثالی ۰۹۳۰۱۱۰۱۰۱۰ استفاده نمایید.'
         ]);
         if ($validator->fails()) {
+            $messages = $validator->messages();
+
+            foreach ($messages->all('<li>:message</li>') as $message)
+            {
+                echo $message;
+            }
+            return;
             return redirect('/formdata')
                 ->withErrors($validator)
                 ->withInput();
@@ -104,7 +111,6 @@ class InfoController extends Controller
             ]);
 
         $user->save();
-//        return 1;
         return $user;
 
     }
