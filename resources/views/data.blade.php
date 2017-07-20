@@ -97,9 +97,14 @@
                 <option value="1">aa</option>
                 <option value="2">ab</option>
             </select>
-            <input type="checkbox" name="t0" value="web">a1
-            <input type="checkbox" name="t1" value="android">a2
-            <input type="checkbox" name="t2" value="ios">a3
+            <input type="checkbox" name="t0" value="مهارت کلی">مهارت کلی
+            <input type="checkbox" name="t1" value="طراحی وب">طراحی وب
+            <input type="checkbox" name="t2" value="داده کاوی">داده کاوی
+            <input type="checkbox" name="t3" value="موبایل">موبایل
+            <input type="checkbox" name="t4" value="توسعه">توسعه
+            <input type="checkbox" name="t5" value="دیجیتال مارکتینگ">دیجیتال مارکتینگ
+            <input type="checkbox" name="t6" value="مدیریت پروژه">مدیریت پروژه
+            <input type="checkbox" name="t7" value="طراحی گرافیکی">طراحی گرافیکی
             <br>
             <br>
             <input type="submit" value="ok">
