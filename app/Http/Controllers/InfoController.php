@@ -54,13 +54,13 @@ class InfoController extends Controller
         for($i=0; $i< Config::get('major.count_field');$i++){
             if(Input::get('t'.$i)){
                 for($j=0; $j< count(Config::get('major.t'.$i));$j++){
-                    if(Input::get('t'.$i.$j)){
+                    //if(Input::get('t'.$i.$j)){
                         if(Input::get('t'.$i.$j.'r') != 0)
                             $skill['t'.$i.$j] = [
                                 "name" => Input::get('t'.$i.$j),
                                 "rate" => Input::get('t'.$i.$j.'r')
                             ];
-                    }
+                    //}
                 }
             }
         }
@@ -104,13 +104,23 @@ class InfoController extends Controller
             ]);
 
         $user->save();
+//        return 1;
         return $user;
 
     }
 
     public function data()
     {
-        return view('data');
+        $grades = array_keys(Config::get('major.grades'));
+        $majors = array_keys(Config::get('major.majors'));
+        $fields = array_keys(Config::get('major.fields'));
+        $skills = [];
+
+        for($i=0; $i< Config::get('major.count_field');$i++){
+            $skills[] = array_values(Config::get('major.t'.$i));
+        }
+        return view('index')->with(['grades'=>$grades,'majors'=>$majors,'skills'=>$skills,'fields'=>$fields]);
+//        return view('data');
     }
 
     public function show()
@@ -123,6 +133,6 @@ class InfoController extends Controller
         for($i=0; $i< Config::get('major.count_field');$i++){
             $skills[] = array_values(Config::get('major.t'.$i));
         }
-        return view('index')->with(['grades'=>$grades,'majors'=>$majors,'skills'=>$skills,'fields'=>$fields]);
+        return view('data')->with(['grades'=>$grades,'majors'=>$majors,'skills'=>$skills,'fields'=>$fields]);
     }
 }

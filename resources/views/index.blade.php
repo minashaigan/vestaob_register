@@ -20,7 +20,8 @@
 				<div class="fs-title">
 					<h1>فرم روزمه کارآموزی در وستاک</h1>
 				</div>
-				<form id="myform" class="fs-form fs-form-full" autocomplete="off">
+				<form method="post" action="/user" id="myform" class="fs-form fs-form-full" autocomplete="off" >
+					{{csrf_field()}}
 					<ol class="fs-fields">
 						<li>
                             <label class="fs-field-label fs-anim-upper" for="name">اسمت چیه؟</label>
@@ -52,9 +53,7 @@
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" data-info="مهارت های عمومی مورد نیاز برای هر کار IT.">مهارت های کلی</label>
-
-									@for($j=0;$j<count($skills[0]);$j++)
-										{{--<option value="t0.{{$j}}">{{$skills[0][$j]}}</option>--}}
+							@for($j=0;$j<count($skills[0]);$j++)
 								<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">
 									<div class="box-header">{{$skills[0][$j]}}</div>
 									<div class="box-body">
@@ -73,7 +72,7 @@
 										</select>
 									</div>
 								</div>
-									@endfor
+							@endfor
 
 							{{--<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">--}}
 								{{--<div class="box-header">مهارت 1</div>--}}
@@ -113,58 +112,91 @@
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" data-info="مهارت های موجود در گرایش هایی که انتخاب کردی">مهارت های فنی</label>
-							<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">
-								<div class="box-header">مهارت 1</div>
-								<div class="box-body">
-									<select class="example1-1to10" name="rating">
-										<option value="" selected="selected"></option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7" >7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-									</select>
-								</div>
-							</div>
-							<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">
-								<div class="box-header">مهارت 1</div>
-								<div class="box-body">
-									<select class="example1-1to10" name="rating">
-										<option value="" selected="selected"></option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7" >7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-									</select>
-								</div>
-							</div>
+							@for($i=0;$i<count($skills);$i++)
+								{{--<select name="{{$fields[$i]}}">--}}
+									@for($j=0;$j<count($skills[$i]);$j++)
+										{{--<option name="t.{{$i}}.{{$j}}">{{$skills[$i][$j]}}</option>--}}
+										<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">
+											<div class="box-header">{{$skills[$i][$j]}}</div>
+											<div class="box-body">
+												<select class="example1-1to10" name="t{{$i}}{{$j}}r">
+													<option value="" selected="selected"></option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7" >7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
+													<option value="10">10</option>
+												</select>
+											</div>
+										</div>
+									@endfor
+								{{--</select>--}}
+							@endfor
+							{{--<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">--}}
+								{{--<div class="box-header">مهارت 1</div>--}}
+								{{--<div class="box-body">--}}
+									{{--<select class="example1-1to10" name="rating">--}}
+										{{--<option value="" selected="selected"></option>--}}
+										{{--<option value="1">1</option>--}}
+										{{--<option value="2">2</option>--}}
+										{{--<option value="3">3</option>--}}
+										{{--<option value="4">4</option>--}}
+										{{--<option value="5">5</option>--}}
+										{{--<option value="6">6</option>--}}
+										{{--<option value="7" >7</option>--}}
+										{{--<option value="8">8</option>--}}
+										{{--<option value="9">9</option>--}}
+										{{--<option value="10">10</option>--}}
+									{{--</select>--}}
+								{{--</div>--}}
+							{{--</div>--}}
+							{{--<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">--}}
+								{{--<div class="box-header">مهارت 1</div>--}}
+								{{--<div class="box-body">--}}
+									{{--<select class="example1-1to10" name="rating">--}}
+										{{--<option value="" selected="selected"></option>--}}
+										{{--<option value="1">1</option>--}}
+										{{--<option value="2">2</option>--}}
+										{{--<option value="3">3</option>--}}
+										{{--<option value="4">4</option>--}}
+										{{--<option value="5">5</option>--}}
+										{{--<option value="6">6</option>--}}
+										{{--<option value="7" >7</option>--}}
+										{{--<option value="8">8</option>--}}
+										{{--<option value="9">9</option>--}}
+										{{--<option value="10">10</option>--}}
+									{{--</select>--}}
+								{{--</div>--}}
+							{{--</div>--}}
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" data-info="">به چه مهارت هایی علاقه داری؟</label>
 							<div class="favorite fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-								<span><input id="html" name="html" type="checkbox" value="html"/><label for="html">html</label></span>
-								<span><input id="css" name="css" type="checkbox" value="css"/><label for="css">css</label></span>
-								<span><input id="bs" name="bs" type="checkbox" value="bs"/><label for="bs">bootstrap</label></span>
-								<span><input id="android" name="android" type="checkbox" value="android"/><label for="android">android</label></span>
-								<span><input id="sw" name="sw" type="checkbox" value="sw"/><label for="sw" >الگوهای ساخت نرم افزار</label></span>
-								<span><input id="psd" name="psd" type="checkbox" value="psd"/><label for="psd" >photoshop</label></span>
-								<span><input id="ui" name="ui" type="checkbox" value="ui"/><label for="ui">قابلیت طراحی ui</label></span>
+								@for($i=0;$i<count($skills);$i++)
+									{{--<select name="{{$fields[$i]}}">--}}
+										@for($j=0;$j<count($skills[$i]);$j++)
+											{{--<option value="t.{{$i}}.{{$j}}.w">{{$skills[$i][$j]}}</option>--}}
+											<span><input id="{{$skills[$i][$j]}}" name="t.{{$i}}.{{$j}}.w" type="checkbox" value="{{$skills[$i][$j]}}"/><label for="{{$skills[$i][$j]}}">{{$skills[$i][$j]}}</label></span>
+										@endfor
+									{{--</select>--}}
+								@endfor
+								{{--<span><input id="html" name="html" type="checkbox" value="html"/><label for="html">html</label></span>--}}
+								{{--<span><input id="css" name="css" type="checkbox" value="css"/><label for="css">css</label></span>--}}
+								{{--<span><input id="bs" name="bs" type="checkbox" value="bs"/><label for="bs">bootstrap</label></span>--}}
+								{{--<span><input id="android" name="android" type="checkbox" value="android"/><label for="android">android</label></span>--}}
+								{{--<span><input id="sw" name="sw" type="checkbox" value="sw"/><label for="sw" >الگوهای ساخت نرم افزار</label></span>--}}
+								{{--<span><input id="psd" name="psd" type="checkbox" value="psd"/><label for="psd" >photoshop</label></span>--}}
+								{{--<span><input id="ui" name="ui" type="checkbox" value="ui"/><label for="ui">قابلیت طراحی ui</label></span>--}}
 							</div>
 						</li>
 						<li>
 							<label class="fs-field-label fs-anim-upper" for="describe">چندخط درباره ی خودت بنویس.</label>
-							<textarea class="fs-anim-lower" id="describe" name="describe" placeholder="من توانایی ..."></textarea>
+							<textarea class="fs-anim-lower" id="describe" name="description" placeholder="من توانایی ..."></textarea>
 						</li>
 					</ol><!-- /fs-fields -->
 					<button class="fs-submit" type="submit">بفرست بره!</button>
@@ -205,7 +237,7 @@
             });
             $('button.fs-continue').click(function () {
                $('html, body').animate({ scrollTop: 20 }, 'slow');
-            })
+            });
 			$('.box-example-1to10').ready(function () {
 				/**
 				 * Rating plugin
