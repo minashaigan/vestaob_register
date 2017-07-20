@@ -20,12 +20,42 @@ class PdfController extends Controller
 
 
         $user=User::where('email',$email)->first();
+
+        $data=json_decode($user->data);
+        $intro=array();
+        $fields=array();
+        $skills=array();
+
+        foreach ($data as $all=>$value) {
+
+            if($all=="intro")
+            {
+                $intro[]=$value;
+            }
+            if($all=="fields")
+            {
+
+
+                    $fields[]=$value;
+
+
+            }
+            if($all=="skills")
+            {
+                $skills[]=$value;
+            }
+        }
+
+
+
+
         if(! is_null($user))
         {
-           // return view('pdf');
+            return view('pdf')
+                ->with(['user'=>$user,'intro'=>$intro,'fields'=>$fields,'skills'=>$skills]);
 
-            $pdf = \PDF::loadView('pdf');
-            return $pdf->download('resumeee.pdf');
+//            $pdf = \PDF::loadView('pdf');
+//            return $pdf->download('resumeee.pdf');
 //            $lg = Array();
 //            $lg['a_meta_charset'] = 'UTF-8';
 //            $lg['a_meta_dir'] = 'rtl';
