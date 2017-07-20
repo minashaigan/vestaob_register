@@ -1,0 +1,37 @@
+/*---------custom changes in css-----------*/
+@import url(fontiran.css);
+html{direction:rtl}
+body{direction:rtl}
+
+.box-header{
+    display: inline;
+    float: right;
+    font-family: 'IRANSans';
+    font-size: 1em;
+    padding: auto 0;
+}
+.box-orange {
+    margin-bottom: 5px;
+}
+.br-theme-bars-1to10 .br-widget {
+    padding: auto 0;
+}
+
+.fs-fields > li .favorite label {
+    padding: 10px;
+}
+.fs-fields > li .favorite span {
+    max-width: 300px;
+}
+.fs-fields > li .favorite span label {
+    color: #b3b3b3;
+    text-align: right;
+}
+.fs-fields > li .favorite label {
+    width: 160%;
+}
+
+.fs-fields .favorite input[type="radio"]:checked + label,
+.fs-fields .favorite input[type="checkbox"]:checked + label {
+    color: rgb(255, 134, 37);
+}
