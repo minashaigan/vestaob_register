@@ -124,7 +124,7 @@
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" data-info="مهارت های موجود در گرایش هایی که انتخاب کردی">مهارت های فنی</label>
-							@for($i=0;$i<count($skills);$i++)
+							@for($i=1;$i<count($skills);$i++)
 								{{--<select name="{{$fields[$i]}}">--}}
 									@for($j=0;$j<count($skills[$i]);$j++)
 										{{--<option name="t.{{$i}}.{{$j}}">{{$skills[$i][$j]}}</option>--}}
@@ -269,5 +269,7 @@
 				});
 			});
 		</script>
+		<script src="js/jquery.barrating.js"></script>
+		<script src="js/examples.js"></script>
 	</body>
 </html>
