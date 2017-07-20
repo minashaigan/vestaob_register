@@ -89,24 +89,21 @@
             <input type="email" name="email" placeholder="email">
             <input type="text" name="phone" placeholder="phone">
             <input type="text" name="university" placeholder="university">
+            <select name="grade">
+                <option value="1">first</option>
+                <option value="2">second</option>
+            </select>
             <select name="major">
                 <option value="1">aa</option>
                 <option value="2">ab</option>
             </select>
-            <input type="checkbox" name="a1" value="web">
-            <input type="checkbox" name="a2" value="android">
-            <input type="checkbox" name="a3" value="ios">
-
+            <input type="checkbox" name="t0" value="web">a1
+            <input type="checkbox" name="t1" value="android">a2
+            <input type="checkbox" name="t2" value="ios">a3
+            <br>
+            <br>
             <input type="submit" value="ok">
         </form>
-
-        <div class="links">
-            <a href="https://laravel.com/docs">Documentation</a>
-            <a href="https://laracasts.com">Laracasts</a>
-            <a href="https://laravel-news.com">News</a>
-            <a href="https://forge.laravel.com">Forge</a>
-            <a href="https://github.com/laravel/laravel">GitHub</a>
-        </div>
     </div>
 </div>
 </body>
