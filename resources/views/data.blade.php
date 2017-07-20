@@ -112,6 +112,15 @@
                 </select>
             @endfor
             <br>
+            <p>wanted</p>
+            @for($i=0;$i<count($skills);$i++)
+                <select name="{{$fields[$i]}}">
+                    @for($j=0;$j<count($skills[$i]);$j++)
+                        <option value="t.{{$i}}.{{$j}}.w">{{$skills[$i][$j]}}</option>
+                    @endfor
+                </select>
+            @endfor
+            <br>
             <input type="submit" value="ok">
         </form>
     </div>

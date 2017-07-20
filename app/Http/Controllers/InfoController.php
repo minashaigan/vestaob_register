@@ -36,16 +36,16 @@ class InfoController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        $fields=[];
-        for($i=0; $i< Config::get('major.count_field');$i++){
-            if(isset($input['t'.$i])){
-                $fields[]=$input['t'.$i];
-            }
-        }
         $user=new User();
         $user->name=Input::get('name');
         $user->email=Input::get('email');
         $user->phone=Input::get('phone');
+        $fields=[];
+        for($i=0; $i< Config::get('major.count_field');$i++){
+            if(Input::get('t'.$i)){
+                $fields[]=Input::get('t'.$i);
+            }
+        }
         $skill = [
 //            'name' => ''
 //            'rate'=>2,
@@ -55,10 +55,11 @@ class InfoController extends Controller
             if(Input::get('t'.$i)){
                 for($j=0; $j< count(Config::get('major.t'.$i));$j++){
                     if(Input::get('t'.$i.$j)){
-                        $skill['t'.$i.$j] = [
-                            'name' => Input::get('t'.$i.$j),
-                            'rate' => Input::get('t'.$i.$j.'r')
-                        ];
+                        if(Input::get('t'.$i.$j.'r') != 0)
+                            $skill['t'.$i.$j] = [
+                                "name" => Input::get('t'.$i.$j),
+                                "rate" => Input::get('t'.$i.$j.'r')
+                            ];
                     }
                 }
             }
@@ -81,27 +82,27 @@ class InfoController extends Controller
             if(Input::get('t'.$i)){
                 for($j=0; $j< count(Config::get('major.t'.$i));$j++){
                     if(Input::get('t'.$i.$j.'w')){
-                        $want[] = Input::get('t'.$i.$j);
+                        $want[] = Input::get('t'.$i.$j.'w');
                     }
                 }
             }
         }
         $user->data = json_encode([
-                'intro'=>[
-                    'grade'=>Input::get('grade'),
+                "intro"=>[
+                    "grade"=>Input::get('grade'),
                     "university"=>Input::get('university'),
-                    "major"=>Input::get('major')
+                    "major"=>Input::get('major'),
+                    "description"=>Input::get('desctiption')
                 ],
-                'fields'=> $fields,
-                'skills'=>[
+                "fields"=> $fields,
+                "skills"=>[
                         $skill,
                 ],
-                'tobelearn'=>[
+                "tobelearn"=>[
                     $want,
                 ]
-            ]
-        );
-        
+            ]);
+
         $user->save();
         return $user;
 
