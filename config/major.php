@@ -102,5 +102,5 @@ return [
         't75'=>'typography',
         't76'=>'طراحی UI',
     ],
-    'count_field'=>3
+    'count_field'=>8
 ];
