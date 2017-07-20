@@ -111,5 +111,17 @@ class InfoController extends Controller
     {
         return view('data');
     }
-    
+
+    public function show()
+    {
+        $grades = array_keys(Config::get('major.grades'));
+        $majors = array_keys(Config::get('major.majors'));
+        $fields = array_keys(Config::get('major.fields'));
+        $skills = [];
+        
+        for($i=0; $i< Config::get('major.count_field');$i++){
+            $skills[] = array_values(Config::get('major.t'.$i));
+        }
+        return view('data')->with(['grades'=>$grades,'majors'=>$majors,'skills'=>$skills,'fields'=>$fields]);
+    }
 }

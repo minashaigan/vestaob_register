@@ -19,3 +19,5 @@ Route::post('/user/','InfoController@saveUser');
 Route::get('/formdata/','InfoController@data');
 
 Route::get('/pdf/{email}','PdfController@index');
+
+Route::get('show','InfoController@show');

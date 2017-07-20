@@ -90,22 +90,27 @@
             <input type="text" name="phone" placeholder="phone">
             <input type="text" name="university" placeholder="university">
             <select name="grade">
-                <option value="1">first</option>
-                <option value="2">second</option>
+                @for($i=0;$i<count($grades);$i++)
+                    <option value="{{$i}}">{{$grades[$i]}}</option>
+                @endfor
             </select>
             <select name="major">
-                <option value="1">aa</option>
-                <option value="2">ab</option>
+                @for($i=0;$i<count($majors);$i++)
+                    <option value="{{$i}}">{{$majors[$i]}}</option>
+                @endfor
             </select>
-            <input type="checkbox" name="t0" value="مهارت کلی">مهارت کلی
-            <input type="checkbox" name="t1" value="طراحی وب">طراحی وب
-            <input type="checkbox" name="t2" value="داده کاوی">داده کاوی
-            <input type="checkbox" name="t3" value="موبایل">موبایل
-            <input type="checkbox" name="t4" value="توسعه">توسعه
-            <input type="checkbox" name="t5" value="دیجیتال مارکتینگ">دیجیتال مارکتینگ
-            <input type="checkbox" name="t6" value="مدیریت پروژه">مدیریت پروژه
-            <input type="checkbox" name="t7" value="طراحی گرافیکی">طراحی گرافیکی
             <br>
+            @for($i=0;$i<count($fields);$i++)
+                <input type="checkbox" name="t.{{$i}}" value="{{$fields[$i]}}">{{$fields[$i]}}
+            @endfor
+            <br>
+            @for($i=0;$i<count($skills);$i++)
+                <select name="{{$fields[$i]}}">
+                    @for($j=0;$j<count($skills[$i]);$j++)
+                        <option value="t.{{$i}}.{{$j}}">{{$skills[$i][$j]}}</option>
+                    @endfor
+                </select>
+            @endfor
             <br>
             <input type="submit" value="ok">
         </form>
