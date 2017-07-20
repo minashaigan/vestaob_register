@@ -21,7 +21,7 @@ class InfoController extends Controller
             'phone' => 'required|max:11|min:11|regex:/(09)[0-9]{9}/'
 
         ],[
-            'name.min'=>'پیام وارد شده باید بیشتر از 2 کارکتر داشته باشد.',
+            'name.min'=>'نام وارد شده باید بیشتر از 2 کارکتر داشته باشد.',
             'name.required'=>'شما حتما باید نام را وارد کنید.',
             'email.required'=>'شما حتما باید ایمیل خود را بنویسید.',
             'university.required'=>'شما باید دانشگاه خود را وارد کنید.',
@@ -54,13 +54,13 @@ class InfoController extends Controller
         for($i=0; $i< Config::get('major.count_field');$i++){
             if(Input::get('t'.$i)){
                 for($j=0; $j< count(Config::get('major.t'.$i));$j++){
-                    if(Input::get('t'.$i.$j)){
+                    //if(Input::get('t'.$i.$j)){
                         if(Input::get('t'.$i.$j.'r') != 0)
                             $skill['t'.$i.$j] = [
                                 "name" => Input::get('t'.$i.$j),
                                 "rate" => Input::get('t'.$i.$j.'r')
                             ];
-                    }
+                    //}
                 }
             }
         }
@@ -110,7 +110,16 @@ class InfoController extends Controller
 
     public function data()
     {
-        return view('data');
+        $grades = array_keys(Config::get('major.grades'));
+        $majors = array_keys(Config::get('major.majors'));
+        $fields = array_keys(Config::get('major.fields'));
+        $skills = [];
+
+        for($i=0; $i< Config::get('major.count_field');$i++){
+            $skills[] = array_values(Config::get('major.t'.$i));
+        }
+        return view('index')->with(['grades'=>$grades,'majors'=>$majors,'skills'=>$skills,'fields'=>$fields]);
+//        return view('data');
     }
 
     public function show()
