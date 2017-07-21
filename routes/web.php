@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return redirect('/formdata');
 });
 
 Route::post('/user/','InfoController@saveUser');

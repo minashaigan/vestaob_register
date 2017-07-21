@@ -17,13 +17,14 @@ class InfoController extends Controller
             'major'=>'required',
             'university'=>'required',
             'grade'=>'required',
-            'email'=>'required|email',
+            'email'=>'required|email|unique:users',
             'phone' => 'required|max:11|min:11|regex:/(09)[0-9]{9}/'
 
         ],[
             'name.min'=>'نام وارد شده باید بیشتر از 2 کارکتر داشته باشد.',
             'name.required'=>'شما حتما باید نام را وارد کنید.',
             'email.required'=>'شما حتما باید ایمیل خود را بنویسید.',
+            'email.unique'=>'ایمیل تکراری میباشد',
             'university.required'=>'شما باید دانشگاه خود را وارد کنید.',
             'major.required'=>'شما باید رشته تحصیلی خود را وارد کنید.',
             'grade.required'=>'شما حتما باید مقطع تحصیلی خود را بنویسید.',
@@ -113,7 +114,7 @@ class InfoController extends Controller
             ]);
 
         $user->save();
-        return $user;
+        return $user->data;
 
     }
 
