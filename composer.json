@@ -10,7 +10,7 @@
         "elibyy/tcpdf-laravel": "^5.3",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "paragonie/random_compat": "1.2.*"
+        "paragonie/random_compat": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
