@@ -114,7 +114,7 @@ class InfoController extends Controller
             ]);
 
         $user->save();
-        return $user->data;
+        return view('welcome');
 
     }
 
