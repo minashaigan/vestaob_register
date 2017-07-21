@@ -53,28 +53,28 @@ class InfoController extends Controller
         ];
         $want = [];
         for($j=0; $j< count(Config::get('major.t0'));$j++){
-            //if(Input::get('t'.$i.$j)){
-            if(!is_null(Input::get('t0'.$j.'r')))
+            if(Input::get('t0'.$j)){
+//            if(!is_null(Input::get('t0'.$j.'r')))
                 $skill['t0'.$j] = [
                     "name" => Config::get('major.t0'.'.t0'.$j),
-                    "rate" => Input::get('t0'.$j.'r')
+//                    "rate" => Input::get('t0'.$j.'r')
                 ];
-            //}
-        }
-        for($i=1; $i< Config::get('major.count_field');$i++){
-            if(Input::get('t'.$i)){
-                for($j=0; $j< count(Config::get('major.t'.$i));$j++){
-                    //if(Input::get('t'.$i.$j)){
-                        if(!is_null(Input::get('t'.$i.$j.'r')))
-                            $skill['t'.$i.$j] = [
-                                "name" => Config::get('major.t'.$i.'.t'.$i.$j),
-                                "rate" => Input::get('t'.$i.$j.'r')
-                            ];
-                    //}
-                }
             }
         }
-        
+        for($i=1; $i< Config::get('major.count_field');$i++){
+//            if(Input::get('t'.$i)){
+            for($j=0; $j< count(Config::get('major.t'.$i));$j++){
+                if(Input::get('t'.$i.$j)){
+//                        if(!is_null(Input::get('t'.$i.$j.'r')))
+                    $skill['t'.$i.$j] = [
+                        "name" => Config::get('major.t'.$i.'.t'.$i.$j),
+//                                "rate" => Input::get('t'.$i.$j.'r')
+                    ];
+                }
+//                }
+            }
+        }
+
 //        for($i=0; $i< Config::get('major.count_field');$i++){
 //            if(isset($input['t'.$i])){
 //                for($j=0; $j< count(Config::get('major.t'.$i));$j++){
@@ -98,20 +98,20 @@ class InfoController extends Controller
             }
         }
         $user->data = json_encode([
-                "intro"=>[
-                    "grade"=>Input::get('grade'),
-                    "university"=>Input::get('university'),
-                    "major"=>Input::get('major'),
-                    "description"=>Input::get('desctiption')
-                ],
-                "fields"=> $fields,
-                "skills"=>[
-                        $skill,
-                ],
-                "tobelearn"=>[
-                    $want,
-                ]
-            ]);
+            "intro"=>[
+                "grade"=>Input::get('grade'),
+                "university"=>Input::get('university'),
+                "major"=>Input::get('major'),
+                "description"=>Input::get('desctiption')
+            ],
+            "fields"=> $fields,
+            "skills"=>[
+                $skill,
+            ],
+            "tobelearn"=>[
+                $want,
+            ]
+        ]);
 
         $user->save();
         return view('welcome');
