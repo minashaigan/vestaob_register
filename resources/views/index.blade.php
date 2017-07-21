@@ -12,6 +12,64 @@
 		<link rel="stylesheet" type="text/css" href="/RTL-css/bars-1to10.css" />
 		<link rel="stylesheet" type="text/css" href="/RTL-css/custom.css" />
 		<script src="/js/modernizr.custom.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+
+			$(document).ready(function(){
+				{{$i=0}}
+				for(var i=0;i<"{{count($skills)}}";i++) {
+							{{$i++}}
+					for (var j = 0; j < "{{count($skills[$i])}}"; j++) {
+						$("#" + i + j).change(createCallback(i, j));
+
+//						$("#"+i+j).click(createCallback( i ,j));
+
+					}
+				}
+				$("#back").click(function () {
+					$("#t1").toggle();
+					$("#t1w").toggle();
+				});
+				$("#front").click(function () {
+					$("#t2").toggle();
+					$("#t2w").toggle();
+				});
+				$("#mobile").click(function () {
+					$("#t3").toggle();
+					$("#t3w").toggle();
+				});
+				$("#data").click(function () {
+					$("#t4").toggle();
+					$("#t4w").toggle();
+				});
+				$("#graphic").click(function () {
+					$("#t5").toggle();
+					$("#t5w").toggle();
+				});
+				$("#digital").click(function () {
+					$("#t6").toggle();
+					$("#t6w").toggle();
+				});
+				$("#project").click(function () {
+					$("#t7").toggle();
+					$("#t7w").toggle();
+				});
+			});
+			function createCallback( i,j ){
+				return function () {
+					if ($("#" + i + j).val()) {
+							$("#s"+i+j+"w").hide();
+						}
+				}
+
+			}
+
+	//			$(document).ready(function(){
+	//				for(var i = 0; i < 20; i++) {
+	//					$('#question' + i).click(  );
+	//				}
+	//			});
+		</script>
 	</head>
 	<body>
 		<div class="container">
@@ -65,31 +123,34 @@
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" data-info="مهارت های عمومی مورد نیاز برای هر کار IT.">مهارت های کلی</label>
-							<div class="favorite fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-								@for($j=0;$j<count($skills[0]);$j++)
-									<span><input id="{{$skills[0][$j]}}" name="t0{{$j}}" type="checkbox" value="{{$skills[0][$j]}}"/><label for="{{$skills[0][$j]}}">{{$skills[0][$j]}}</label></span>
-								@endfor
-							</div>
-{{--							@for($j=0;$j<count($skills[0]);$j++)--}}
-								{{--<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">--}}
-									{{--<div class="box-header">{{$skills[0][$j]}}</div>--}}
-									{{--<div class="box-body">--}}
-										{{--<select class="example-1to10" name="t0{{$j}}r">--}}
-											{{--<option value="" selected="selected"></option>--}}
-											{{--<option value="1">1</option>--}}
-											{{--<option value="2">2</option>--}}
-											{{--<option value="3">3</option>--}}
-											{{--<option value="4">4</option>--}}
-											{{--<option value="5">5</option>--}}
-											{{--<option value="6">6</option>--}}
-											{{--<option value="7" >7</option>--}}
-											{{--<option value="8">8</option>--}}
-											{{--<option value="9">9</option>--}}
-											{{--<option value="10">10</option>--}}
-										{{--</select>--}}
-									{{--</div>--}}
-								{{--</div>--}}
-							{{--@endfor--}}
+							{{--<div class="favorite fs-radio-group fs-radio-custom clearfix fs-anim-lower">--}}
+								{{--@for($j=0;$j<count($skills[0]);$j++)--}}
+									{{--<span  id="s0{{$j}}"><input id="0{{$j}}" name="t0{{$j}}" type="checkbox" value="{{$skills[0][$j]}}"/><label for="0{{$j}}">{{$skills[0][$j]}}</label></span>--}}
+								{{--@endfor--}}
+
+							{{--</div>--}}
+							@for($j=0;$j<count($skills[0]);$j++)
+								<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">
+									<div class="box-header">{{$skills[0][$j]}}</div>
+									<div class="box-body">
+										<div  id="s0{{$j}}">
+										<select class="example-1to10" id="0{{$j}}" name="t0{{$j}}r" >
+											<option value="" selected="selected"></option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7" >7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+										</select>
+										</div>
+									</div>
+								</div>
+							@endfor
 
 							{{--<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">--}}
 								{{--<div class="box-header">مهارت 1</div>--}}
@@ -129,39 +190,45 @@
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" data-info="مهارت های موجود در گرایش هایی که انتخاب کردی">مهارت های فنی</label>
-							<div class="favorite fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-								@for($i=1;$i<count($skills);$i++)
-									@for($j=0;$j<count($skills[$i]);$j++)
-										<span><input id="{{$skills[$i][$j]}}" name="t{{$i}}{{$j}}" type="checkbox" value="{{$skills[$i][$j]}}"/><label for="{{$skills[$i][$j]}}">{{$skills[$i][$j]}}</label></span>
-									@endfor
-								@endfor
-							</div>
-{{--							@for($i=1;$i<count($skills);$i++)--}}
+							{{--<div class="favorite fs-radio-group fs-radio-custom clearfix fs-anim-lower">--}}
+								{{--@for($i=1;$i<count($skills);$i++)--}}
+									{{--<div id="t{{$i}}" hidden>--}}
+										{{--@for($j=0;$j<count($skills[$i]);$j++)--}}
+											{{--<span id="s{{$i}}{{$j}}" ><input id="{{$i}}{{$j}}" name="t{{$i}}{{$j}}" type="checkbox" value="{{$skills[$i][$j]}}"/><label for="{{$i}}{{$j}}">{{$skills[$i][$j]}}</label></span>--}}
+										{{--@endfor--}}
+									{{--</div>--}}
+								{{--@endfor--}}
+							{{--</div>--}}
+							@for($i=1;$i<count($skills);$i++)
+								<div id="t{{$i}}" hidden>
 								{{--<select name="{{$fields[$i]}}">--}}
-{{--									@for($j=0;$j<count($skills[$i]);$j++)--}}
-										{{--<option name="t.{{$i}}.{{$j}}">{{$skills[$i][$j]}}</option>--}}
+									@for($j=0;$j<count($skills[$i]);$j++)
+{{--										<option name="t.{{$i}}.{{$j}}">{{$skills[$i][$j]}}</option>--}}
 									{{--<span><input id="{{$skills[$i][$j]}}" name="t{{$i}}{{$j}}" type="checkbox" value="{{$skills[$i][$j]}}"/><label for="{{$skills[$i][$j]}}">{{$skills[$i][$j]}}</label></span>--}}
-										{{--<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">--}}
-											{{--<div class="box-header">{{$skills[$i][$j]}}</div>--}}
-											{{--<div class="box-body">--}}
-												{{--<select class="example1-1to10" name="t{{$i}}{{$j}}r">--}}
-													{{--<option value="" selected="selected"></option>--}}
-													{{--<option value="1">1</option>--}}
-													{{--<option value="2">2</option>--}}
-													{{--<option value="3">3</option>--}}
-													{{--<option value="4">4</option>--}}
-													{{--<option value="5">5</option>--}}
-													{{--<option value="6">6</option>--}}
-													{{--<option value="7" >7</option>--}}
-													{{--<option value="8">8</option>--}}
-													{{--<option value="9">9</option>--}}
-													{{--<option value="10">10</option>--}}
-												{{--</select>--}}
-											{{--</div>--}}
-										{{--</div>--}}
-									{{--@endfor--}}
+										<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">
+											<div class="box-header">{{$skills[$i][$j]}}</div>
+											<div class="box-body">
+												<div id="s{{$i}}{{$j}}" >
+													<select class="example1-1to10" id="{{$i}}{{$j}}" name="t{{$i}}{{$j}}r">
+														<option value="" selected="selected"></option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7" >7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									@endfor
 								{{--</select>--}}
-							{{--@endfor--}}
+								</div>
+							@endfor
 							{{--<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">--}}
 								{{--<div class="box-header">مهارت 1</div>--}}
 								{{--<div class="box-body">--}}
@@ -202,12 +269,22 @@
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" data-info="">به چه مهارت هایی علاقه داری؟</label>
 							<div class="favorite fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-								@for($i=0;$i<count($skills);$i++)
+								{{--<select name="{{$fields[$i]}}">--}}
+								<div id="t0w">
+									@for($j=0;$j<count($skills[0]);$j++)
+										{{--<option value="t.{{$i}}.{{$j}}.w">{{$skills[$i][$j]}}</option>--}}
+										<span id="s0{{$j}}w"><input id="0{{$j}}w" name="t0{{$j}}w" type="checkbox" value="{{$skills[0][$j]}}"/><label for="0{{$j}}w">{{$skills[0][$j]}}</label></span>
+									@endfor
+								</div>
+								{{--</select>--}}
+								@for($i=1;$i<count($skills);$i++)
 									{{--<select name="{{$fields[$i]}}">--}}
+									<div id="t{{$i}}w" hidden>
 										@for($j=0;$j<count($skills[$i]);$j++)
 											{{--<option value="t.{{$i}}.{{$j}}.w">{{$skills[$i][$j]}}</option>--}}
-											<span><input id="{{$skills[$i][$j]}}w" name="t{{$i}}{{$j}}w" type="checkbox" value="{{$skills[$i][$j]}}"/><label for="{{$skills[$i][$j]}}w">{{$skills[$i][$j]}}</label></span>
+											<span id="s{{$i}}{{$j}}w"><input id="{{$i}}{{$j}}w" name="t{{$i}}{{$j}}w" type="checkbox" value="{{$skills[$i][$j]}}"/><label for="{{$i}}{{$j}}w">{{$skills[$i][$j]}}</label></span>
 										@endfor
+									</div>
 									{{--</select>--}}
 								@endfor
 								{{--<span><input id="html" name="html" type="checkbox" value="html"/><label for="html">html</label></span>--}}

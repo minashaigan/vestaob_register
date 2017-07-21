@@ -53,24 +53,24 @@ class InfoController extends Controller
         ];
         $want = [];
         for($j=0; $j< count(Config::get('major.t0'));$j++){
-            if(Input::get('t0'.$j)){
-//            if(!is_null(Input::get('t0'.$j.'r')))
+//            if(Input::get('t0'.$j)){
+            if(!is_null(Input::get('t0'.$j.'r')))
                 $skill['t0'.$j] = [
                     "name" => Config::get('major.t0'.'.t0'.$j),
-//                    "rate" => Input::get('t0'.$j.'r')
+                    "rate" => Input::get('t0'.$j.'r')
                 ];
-            }
+//            }
         }
         for($i=1; $i< Config::get('major.count_field');$i++){
 //            if(Input::get('t'.$i)){
             for($j=0; $j< count(Config::get('major.t'.$i));$j++){
-                if(Input::get('t'.$i.$j)){
-//                        if(!is_null(Input::get('t'.$i.$j.'r')))
-                    $skill['t'.$i.$j] = [
-                        "name" => Config::get('major.t'.$i.'.t'.$i.$j),
-//                                "rate" => Input::get('t'.$i.$j.'r')
-                    ];
-                }
+//                if(Input::get('t'.$i.$j)){
+                    if(!is_null(Input::get('t'.$i.$j.'r')))
+                        $skill['t'.$i.$j] = [
+                            "name" => Config::get('major.t'.$i.'.t'.$i.$j),
+                            "rate" => Input::get('t'.$i.$j.'r')
+                        ];
+//                }
 //                }
             }
         }
@@ -88,7 +88,12 @@ class InfoController extends Controller
 //            }
 //        }
 
-        for($i=0; $i< Config::get('major.count_field');$i++){
+        for($j=0; $j< count(Config::get('major.t0'));$j++){
+            if(Input::get('t0'.$j.'w')){
+                $want[] = Input::get('t0'.$j.'w');
+            }
+        }
+        for($i=1; $i< Config::get('major.count_field');$i++){
             if(Input::get('t'.$i)){
                 for($j=0; $j< count(Config::get('major.t'.$i));$j++){
                     if(Input::get('t'.$i.$j.'w')){
