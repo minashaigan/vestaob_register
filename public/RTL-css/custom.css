@@ -7,11 +7,11 @@ body{direction:rtl}
     display: inline;
     float: right;
     font-family: 'IRANSans';
-    font-size: 1em;
+    font-size: .6em;
     padding: auto 0;
 }
 .box-orange {
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
 }
 .br-theme-bars-1to10 .br-widget {
     padding: auto 0;

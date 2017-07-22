@@ -76,7 +76,7 @@
 
 			<div class="fs-form-wrap" id="fs-form-wrap">
 				<div class="fs-title">
-					<h1>فرم روزمه کارآموزی در وستاک</h1>
+					<h1>فرم رزومه کارآموزی در وستاک</h1>
 				</div>
 				<form method="post" action="/user" id="myform" class="fs-form fs-form-full" autocomplete="off" >
 					{{csrf_field()}}
@@ -89,13 +89,13 @@
 							<div style="color: #de0000"> <?php echo $errors->first('major'); ?></div>
 							<div style="color: #de0000"> <?php echo $errors->first('universiry'); ?></div>
                             <label class="fs-field-label fs-anim-upper" for="name">اسمت چیه؟</label>
-                            <input class="fs-anim-lower" id="name" name="name" type="text" placeholder="استیو جابز" required/>
+                            <input class="fs-anim-lower" id="name" name="name" type="text" placeholder="استیو جابز" />
 
                             <label class="fs-field-label fs-anim-upper" for="email">ایمیلتم بگو.</label>
-                            <input class="fs-anim-lower" id="mail" name="email" type="email" placeholder="stevejojo@gmail.com" required/>
+                            <input class="fs-anim-lower" id="mail" name="email" type="email" placeholder="stevejojo@gmail.com" />
 
                             <label class="fs-field-label fs-anim-upper" for="phone">یه شماره تماسم بده.</label>
-                            <input class="fs-anim-lower" id="phone" name="phone" type="number" placeholder="09363636333" required/>
+                            <input class="fs-anim-lower" id="phone" name="phone" type="number" placeholder="09363636333" />
 
 						</li>
 						<li>
