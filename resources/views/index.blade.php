@@ -323,20 +323,20 @@
 				$("#mobile").click(mobile());
 				$("#data").click(data());
 				$("#graphic").click(function () {
-					$("#t1").toggle();
-					$("#t1w").toggle();
+					$("#t1").show();
+					$("#t1w").show();
 					$("#t5").toggle();
 					$("#t5w").toggle();
 				});
 				$("#digital").click(function () {
-					$("#t1").toggle();
-					$("#t1w").toggle();
+					$("#t1").show();
+					$("#t1w").show();
 					$("#t6").toggle();
 					$("#t6w").toggle();
 				});
 				$("#project").click(function () {
-					$("#t1").toggle();
-					$("#t1w").toggle();
+					$("#t1").show();
+					$("#t1w").show();
 					$("#t7").toggle();
 					$("#t7w").toggle();
 				});
@@ -351,14 +351,14 @@
 			}
 			function back() {
 				return function() {
-					$("#t1").toggle();
-					$("#t1w").toggle();
+					$("#t1").show();
+					$("#t1w").show();
 				}
 			}
 			function front() {
 				return function() {
-					$("#t1").toggle();
-					$("#t1w").toggle();
+					$("#t1").show();
+					$("#t1w").show();
 					$("#t2").toggle();
 					$("#t2w").toggle();
 
@@ -366,16 +366,16 @@
 			}
 			function mobile() {
 				return function() {
-					$("#t1").toggle();
-					$("#t1w").toggle();
+					$("#t1").show();
+					$("#t1w").show();
 					$("#t3").toggle();
 					$("#t3w").toggle();
 				}
 			}
 			function data() {
 				return function () {
-					$("#t1").toggle();
-					$("#t1w").toggle();
+					$("#t1").show();
+					$("#t1w").show();
 					$("#t4").toggle();
 					$("#t4w").toggle();
 				}
