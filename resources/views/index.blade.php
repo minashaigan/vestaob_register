@@ -211,7 +211,7 @@
 							{{--</div>--}}
 						</li>
 						<li data-input-trigger>
-							<label class="fs-field-label fs-anim-upper" data-info="">به چه مهارت هایی علاقه داری؟</label>
+							<label class="fs-field-label fs-anim-upper" data-info="">علاقه مند به یادگیری کدام مهارت ها هستید؟</label>
 							<div class="favorite fs-radio-group fs-radio-custom clearfix fs-anim-lower">
 								{{--<select name="{{$fields[$i]}}">--}}
 								<div id="t0w">
