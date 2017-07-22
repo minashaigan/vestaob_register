@@ -13,70 +13,14 @@
 		<link rel="stylesheet" type="text/css" href="/RTL-css/custom.css" />
 		<script src="/js/modernizr.custom.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script>
 
-			$(document).ready(function(){
-				{{$i=0}}
-				for(var i=0;i<"{{count($skills)}}";i++) {
-							{{$i++}}
-					for (var j = 0; j < "{{count($skills[$i])}}"; j++) {
-						$("#" + i + j).change(createCallback(i, j));
-
-//						$("#"+i+j).click(createCallback( i ,j));
-
-					}
-				}
-				$("#back").click(function () {
-					$("#t1").toggle();
-					$("#t1w").toggle();
-				});
-				$("#front").click(function () {
-					$("#t2").toggle();
-					$("#t2w").toggle();
-				});
-				$("#mobile").click(function () {
-					$("#t3").toggle();
-					$("#t3w").toggle();
-				});
-				$("#data").click(function () {
-					$("#t4").toggle();
-					$("#t4w").toggle();
-				});
-				$("#graphic").click(function () {
-					$("#t5").toggle();
-					$("#t5w").toggle();
-				});
-				$("#digital").click(function () {
-					$("#t6").toggle();
-					$("#t6w").toggle();
-				});
-				$("#project").click(function () {
-					$("#t7").toggle();
-					$("#t7w").toggle();
-				});
-			});
-			function createCallback( i,j ){
-				return function () {
-					if ($("#" + i + j).val()) {
-							$("#s"+i+j+"w").hide();
-						}
-				}
-
-			}
-
-	//			$(document).ready(function(){
-	//				for(var i = 0; i < 20; i++) {
-	//					$('#question' + i).click(  );
-	//				}
-	//			});
-		</script>
 	</head>
 	<body>
 		<div class="container">
 
 			<div class="fs-form-wrap" id="fs-form-wrap">
 				<div class="fs-title">
-					<h1>فرم رزومه کارآموزی در وستاک</h1>
+					<h1>فرم روزمه کارآموزی در وستاک</h1>
 				</div>
 				<form method="post" action="/user" id="myform" class="fs-form fs-form-full" autocomplete="off" >
 					{{csrf_field()}}
@@ -89,13 +33,13 @@
 							<div style="color: #de0000"> <?php echo $errors->first('major'); ?></div>
 							<div style="color: #de0000"> <?php echo $errors->first('universiry'); ?></div>
                             <label class="fs-field-label fs-anim-upper" for="name">اسمت چیه؟</label>
-                            <input class="fs-anim-lower" id="name" name="name" type="text" placeholder="استیو جابز" />
+                            <input class="fs-anim-lower" id="name" name="name" type="text" placeholder="استیو جابز" required/>
 
                             <label class="fs-field-label fs-anim-upper" for="email">ایمیلتم بگو.</label>
-                            <input class="fs-anim-lower" id="mail" name="email" type="email" placeholder="stevejojo@gmail.com" />
+                            <input class="fs-anim-lower" id="mail" name="email" type="email" placeholder="stevejojo@gmail.com" required/>
 
                             <label class="fs-field-label fs-anim-upper" for="phone">یه شماره تماسم بده.</label>
-                            <input class="fs-anim-lower" id="phone" name="phone" type="number" placeholder="09363636333" />
+                            <input class="fs-anim-lower" id="phone" name="phone" type="number" placeholder="09363636333" required/>
 
 						</li>
 						<li>
@@ -200,10 +144,9 @@
 								{{--@endfor--}}
 							{{--</div>--}}
 							@for($i=1;$i<count($skills);$i++)
-
+								<div id="t{{$i}}" hidden>
 								{{--<select name="{{$fields[$i]}}">--}}
 									@for($j=0;$j<count($skills[$i]);$j++)
-									<div id="t{{$i}}" hidden>
 {{--										<option name="t.{{$i}}.{{$j}}">{{$skills[$i][$j]}}</option>--}}
 									{{--<span><input id="{{$skills[$i][$j]}}" name="t{{$i}}{{$j}}" type="checkbox" value="{{$skills[$i][$j]}}"/><label for="{{$skills[$i][$j]}}">{{$skills[$i][$j]}}</label></span>--}}
 										<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">
@@ -226,10 +169,9 @@
 												</div>
 											</div>
 										</div>
-									</div>
 									@endfor
 								{{--</select>--}}
-
+								</div>
 							@endfor
 							{{--<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">--}}
 								{{--<div class="box-header">مهارت 1</div>--}}
@@ -363,5 +305,86 @@
 		</script>
 		<script src="js/jquery.barrating.js"></script>
 		<script src="js/examples.js"></script>
+		<script>
+
+			$(document).ready(function(){
+						{{$i=0}}
+				for(var i=0;i<"{{count($skills)}}";i++) {
+							{{$i++}}
+					for (var j = 0; j < "{{count($skills[$i])}}"; j++) {
+						$("#" + i + j).change(createCallback(i, j));
+
+//						$("#"+i+j).click(createCallback( i ,j));
+
+					}
+				}
+				$("#back").click(back());
+				$("#front").click(front());
+				$("#mobile").click(mobile());
+				$("#data").click(data());
+				$("#graphic").click(function () {
+					$("#t1").toggle();
+					$("#t1w").toggle();
+					$("#t5").toggle();
+					$("#t5w").toggle();
+				});
+				$("#digital").click(function () {
+					$("#t1").toggle();
+					$("#t1w").toggle();
+					$("#t6").toggle();
+					$("#t6w").toggle();
+				});
+				$("#project").click(function () {
+					$("#t1").toggle();
+					$("#t1w").toggle();
+					$("#t7").toggle();
+					$("#t7w").toggle();
+				});
+			});
+			function createCallback( i,j ){
+				return function () {
+					if ($("#" + i + j).val()) {
+						$("#s"+i+j+"w").hide();
+					}
+				}
+
+			}
+			function back() {
+				return function() {
+					$("#t1").toggle();
+					$("#t1w").toggle();
+				}
+			}
+			function front() {
+				return function() {
+					$("#t1").toggle();
+					$("#t1w").toggle();
+					$("#t2").toggle();
+					$("#t2w").toggle();
+
+				}
+			}
+			function mobile() {
+				return function() {
+					$("#t1").toggle();
+					$("#t1w").toggle();
+					$("#t3").toggle();
+					$("#t3w").toggle();
+				}
+			}
+			function data() {
+				return function () {
+					$("#t1").toggle();
+					$("#t1w").toggle();
+					$("#t4").toggle();
+					$("#t4w").toggle();
+				}
+			}
+			//			$(document).ready(function(){
+			//				for(var i = 0; i < 20; i++) {
+			//					$('#question' + i).click(  );
+			//				}
+			//			});
+		</script>
 	</body>
 </html>
