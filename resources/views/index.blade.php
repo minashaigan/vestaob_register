@@ -200,9 +200,10 @@
 								{{--@endfor--}}
 							{{--</div>--}}
 							@for($i=1;$i<count($skills);$i++)
-								<div id="t{{$i}}" hidden>
+
 								{{--<select name="{{$fields[$i]}}">--}}
 									@for($j=0;$j<count($skills[$i]);$j++)
+									<div id="t{{$i}}" hidden>
 {{--										<option name="t.{{$i}}.{{$j}}">{{$skills[$i][$j]}}</option>--}}
 									{{--<span><input id="{{$skills[$i][$j]}}" name="t{{$i}}{{$j}}" type="checkbox" value="{{$skills[$i][$j]}}"/><label for="{{$skills[$i][$j]}}">{{$skills[$i][$j]}}</label></span>--}}
 										<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">
@@ -225,9 +226,10 @@
 												</div>
 											</div>
 										</div>
+									</div>
 									@endfor
 								{{--</select>--}}
-								</div>
+
 							@endfor
 							{{--<div class="box box-orange fs-radio-group fs-radio-custom clearfix fs-anim-lower box-example-1to10">--}}
 								{{--<div class="box-header">مهارت 1</div>--}}
