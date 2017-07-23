@@ -223,7 +223,7 @@
 								{{--</select>--}}
 								@for($i=1;$i<count($skills);$i++)
 									{{--<select name="{{$fields[$i]}}">--}}
-									<div id="t{{$i}}w" hidden>
+									<div id="t{{$i}}w">
 										@for($j=0;$j<count($skills[$i]);$j++)
 											{{--<option value="t.{{$i}}.{{$j}}.w">{{$skills[$i][$j]}}</option>--}}
 											<span id="s{{$i}}{{$j}}w"><input id="{{$i}}{{$j}}w" name="t{{$i}}{{$j}}w" type="checkbox" value="{{$skills[$i][$j]}}"/><label for="{{$i}}{{$j}}w">{{$skills[$i][$j]}}</label></span>
@@ -324,27 +324,21 @@
 				$("#data").click(data());
 				$("#graphic").click(function () {
 					$("#t1").show();
-					$("#t1w").show();
 					$("#t5").toggle();
-					$("#t5w").toggle();
 				});
 				$("#digital").click(function () {
 					$("#t1").show();
-					$("#t1w").show();
 					$("#t6").toggle();
-					$("#t6w").toggle();
 				});
 				$("#project").click(function () {
 					$("#t1").show();
-					$("#t1w").show();
 					$("#t7").toggle();
-					$("#t7w").toggle();
 				});
 			});
 			function createCallback( i,j ){
 				return function () {
 					if ($("#" + i + j).val()) {
-						$("#s"+i+j+"w").hide();
+//						$("#s"+i+j+"w").hide();
 					}
 				}
 
@@ -358,26 +352,25 @@
 			function front() {
 				return function() {
 					$("#t1").show();
-					$("#t1w").show();
 					$("#t2").toggle();
-					$("#t2w").toggle();
+
 
 				}
 			}
 			function mobile() {
 				return function() {
 					$("#t1").show();
-					$("#t1w").show();
+
 					$("#t3").toggle();
-					$("#t3w").toggle();
+
 				}
 			}
 			function data() {
 				return function () {
 					$("#t1").show();
-					$("#t1w").show();
+
 					$("#t4").toggle();
-					$("#t4w").toggle();
+
 				}
 			}
 			//			$(document).ready(function(){

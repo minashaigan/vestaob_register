@@ -94,12 +94,12 @@ class InfoController extends Controller
             }
         }
         for($i=1; $i< Config::get('major.count_field');$i++){
-            if(Input::get('t'.$i)){
+//            if(Input::get('t'.$i)){
                 for($j=0; $j< count(Config::get('major.t'.$i));$j++){
                     if(Input::get('t'.$i.$j.'w')){
                         $want[] = Input::get('t'.$i.$j.'w');
                     }
-                }
+//                }
             }
         }
         $user->data = json_encode([
