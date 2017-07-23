@@ -16,6 +16,10 @@ Route::get('/', function () {
 });
 
 Route::post('/user/','InfoController@saveUser');
+Route::get('/user/',function (){
+    return redirect('/formdata');
+});
+
 Route::get('/formdata/','InfoController@data');
 
 Route::get('/pdf/{email}','PdfController@index');
