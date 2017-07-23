@@ -20,7 +20,7 @@
 
 			<div class="fs-form-wrap" id="fs-form-wrap">
 				<div class="fs-title">
-					<h1>فرم روزمه کارآموزی در وستاک</h1>
+					<h1>فرم روزمه در وستاک</h1>
 				</div>
 				<form method="post" action="/user" id="myform" class="fs-form fs-form-full" autocomplete="off" >
 					{{csrf_field()}}
