@@ -23,5 +23,6 @@ Route::get('/user/',function (){
 Route::get('/formdata/','InfoController@data');
 
 Route::get('/pdf/{email}','PdfController@index');
+Route::get('/pdf','PdfController@users');
 
 Route::get('show','InfoController@show');

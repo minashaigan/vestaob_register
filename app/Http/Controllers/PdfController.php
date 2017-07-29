@@ -25,6 +25,7 @@ class PdfController extends Controller
         $intro=array();
         $fields=array();
         $skills=array();
+        $tobelearn=array();
 
         foreach ($data as $all=>$value) {
 
@@ -44,7 +45,12 @@ class PdfController extends Controller
             {
                 $skills[]=$value;
             }
+            if($all=="tobelearn")
+            {
+                $tobelearn[]=$value;
+            }
         }
+
 
 
 
@@ -52,7 +58,7 @@ class PdfController extends Controller
         if(! is_null($user))
         {
             return view('pdf')
-                ->with(['user'=>$user,'intro'=>$intro,'fields'=>$fields,'skills'=>$skills]);
+                ->with(['user'=>$user,'intro'=>$intro,'fields'=>$fields,'skills'=>$skills,'tobelearn'=>$tobelearn]);
 
 //            $pdf = \PDF::loadView('pdf');
 //            return $pdf->download('resumeee.pdf');
@@ -74,5 +80,15 @@ class PdfController extends Controller
 
         }
         return 'email unfifinded';
+    }
+
+    public function users()
+    {
+        $users=User::all();
+        $count=count($users);
+        foreach ($users as $user){
+            $user->data=(array) json_decode($user->data);
+        }
+        return view('show_users')->with(['users'=>$users,'count'=>$count]);
     }
 }

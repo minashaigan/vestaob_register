@@ -445,13 +445,37 @@
                     @foreach($skills as $data=>$value)
                         @foreach($value as $all=>$val)
                             @foreach($val as $al=>$a)
-                    <li>{{$a->name}}</li>
+                    <li>{{$a->name}} ({{$a->rate}})</li>
                             @endforeach
                         @endforeach
                     @endforeach
                 </ul>
             </div>
+
+
             <div class="clear"></div>
+
+        </section>
+        <section>
+            <div class="sectionTitle">
+                <h1>می خواهد یاد بگیرد</h1>
+            </div>
+
+            <div class="sectionContent">
+                <ul class="keySkills">
+                    @foreach($tobelearn as $all)
+                        @foreach($all as $value)
+                            @foreach($value as $item)
+                                {{$item}}
+                            @endforeach
+                        @endforeach
+                    @endforeach
+                </ul>
+            </div>
+
+
+            <div class="clear"></div>
+
         </section>
 
 
