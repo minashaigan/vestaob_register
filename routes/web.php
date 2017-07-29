@@ -26,3 +26,9 @@ Route::get('/pdf/{email}','PdfController@index');
 Route::get('/pdf','PdfController@users');
 
 Route::get('show','InfoController@show');
+
+
+Auth::routes();
+
+
+

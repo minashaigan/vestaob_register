@@ -107,10 +107,12 @@
         </tr>
 
         @foreach($users as $user)
+
             <tr>
                 <td data-th="ID">{{$user->id}}</td>
                 <td data-th="Mail"><a href="/pdf/{{$user->email}}/">{{$user->name}}</a></td>
                 <td>
+                    @if(!$user->data==null)
                     <?php
                         $fields="";
                     foreach ($user->data['fields'] as $field){
@@ -118,6 +120,7 @@
                     }
                     ?>
                     {{$fields}}
+                    @endif
                 </td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->phone}}</td>
