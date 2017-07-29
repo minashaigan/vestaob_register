@@ -372,6 +372,7 @@
     <![endif]-->
 </head>
 <body id="top" dir="rtl">
+
 <div id="cv" class="instaFade">
     <div class="mainDetails">
         <div id="headshot" class="quickFade">

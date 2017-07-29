@@ -27,8 +27,14 @@ Route::get('/pdf','PdfController@users');
 
 Route::get('show','InfoController@show');
 
+Route::get('/home',function (){
+   return view('welcome') ;
+});
+
+
 
 Auth::routes();
+
 
 
 

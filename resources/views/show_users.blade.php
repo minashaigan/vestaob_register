@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mail</title>
+    <title>Users</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         @import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700";
@@ -92,6 +92,7 @@
     </style>
 </head>
 <body class="w3-green">
+@include('layouts.app')
 <div class="w3-container " align="center">
     <h1>User list ({{$count}})</h1>
 
